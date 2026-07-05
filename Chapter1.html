@@ -27,7 +27,7 @@ h1{
     align-items:flex-start;
     gap:30px;
     padding:20px;
-    overflow:visible;
+    flex-wrap:wrap;
 }
 
 .panel{
@@ -39,19 +39,49 @@ h1{
     max-width:100%;
     border-radius:10px;
     cursor:pointer;
-    transition:transform .25s ease;
     box-shadow:0 0 15px rgba(0,0,0,.6);
+    transition:.2s;
 }
 
-.zoomed{
-    transform:scale(2.5);
-    z-index:1000;
-    position:relative;
+.panel img:hover{
+    transform:scale(1.02);
 }
 
 .caption{
     margin-top:12px;
     font-size:18px;
+}
+
+/* ---------- LIGHTBOX ---------- */
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    overflow:auto;
+    z-index:9999;
+    cursor:zoom-out;
+}
+
+#lightbox img{
+    display:block;
+    margin:40px auto;
+    max-width:95%;
+    height:auto;
+    border-radius:8px;
+    box-shadow:0 0 30px rgba(0,0,0,.8);
+}
+
+#close{
+    position:fixed;
+    top:20px;
+    right:30px;
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+    cursor:pointer;
+    user-select:none;
 }
 
 </style>
@@ -65,30 +95,56 @@ h1{
 <div class="container">
 
     <div class="panel">
-        <img src="MC_01.png" alt="Cover" onclick="toggleZoom(this)">
+        <img src="MC_01.png" alt="Cover" onclick="openImage(this.src)">
         <div class="caption">Cover</div>
     </div>
 
     <div class="panel">
-        <img src="MC_40.png" alt="Comic Page" onclick="toggleZoom(this)">
+        <img src="MC_40.png" alt="Comic Page" onclick="openImage(this.src)">
         <div class="caption">Page 1</div>
     </div>
 
 </div>
 
+<div id="lightbox" onclick="closeImage()">
+
+    <span id="close">&times;</span>
+
+    <img id="lightboxImage">
+
+</div>
+
 <script>
 
-function toggleZoom(img){
+const lightbox=document.getElementById("lightbox");
+const lightboxImage=document.getElementById("lightboxImage");
 
-    document.querySelectorAll(".panel img").forEach(image=>{
-        if(image!==img){
-            image.classList.remove("zoomed");
-        }
-    });
+function openImage(src){
 
-    img.classList.toggle("zoomed");
+    lightbox.style.display="block";
+    lightboxImage.src=src;
 
+    document.body.style.overflow="hidden";
 }
+
+function closeImage(){
+
+    lightbox.style.display="none";
+    document.body.style.overflow="auto";
+}
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape")
+        closeImage();
+
+});
+
+lightboxImage.addEventListener("click",function(e){
+
+    e.stopPropagation();
+
+});
 
 </script>
 
