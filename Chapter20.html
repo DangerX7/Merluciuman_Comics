@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Merluciuman - Chapter 20</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#111827;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align:center;
+    margin:20px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:30px;
+    padding:20px;
+    flex-wrap:wrap;
+}
+
+.panel{
+    text-align:center;
+}
+
+.panel img{
+    width:420px;
+    max-width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(0,0,0,.6);
+    transition:.2s;
+}
+
+.panel img:hover{
+    transform:scale(1.02);
+}
+
+.caption{
+    margin-top:12px;
+    font-size:18px;
+}
+
+/* ---------- LIGHTBOX ---------- */
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    overflow-y:auto;
+    overflow-x:auto;
+    z-index:9999;
+    cursor:zoom-out;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+#lightboxContent{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;   /* <-- Start at the TOP */
+    min-height:100%;
+}
+
+#lightbox img{
+    display:block;
+    margin:0;
+    max-width:100%;
+    height:auto;
+    border-radius:8px;
+    box-shadow:0 0 30px rgba(0,0,0,.8);
+}
+
+#close{
+    position:fixed;
+    top:15px;
+    right:25px;
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+    cursor:pointer;
+    user-select:none;
+    z-index:10000;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Chapter 1</h1>
+
+<div class="container">
+
+    <div class="panel">
+        <img src="MC_39.png" alt="Cover" onclick="openImage(this.src)">
+        <div class="caption">Cover</div>
+    </div>
+
+    <div class="panel">
+        <img src="MC_40.png" alt="Comic Page" onclick="openImage(this.src)">
+        <div class="caption">Page 1</div>
+    </div>
+
+</div>
+
+<div id="lightbox" onclick="closeImage()">
+
+    <span id="close">&times;</span>
+
+    <div id="lightboxContent">
+        <img id="lightboxImage">
+    </div>
+
+</div>
+
+<script>
+
+const lightbox=document.getElementById("lightbox");
+const lightboxImage=document.getElementById("lightboxImage");
+
+function openImage(src){
+
+    lightboxImage.src=src;
+    lightbox.style.display="block";
+
+    // Always start viewing from the top
+    lightbox.scrollTop=0;
+}
+
+function closeImage(){
+
+    lightbox.style.display="none";
+}
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape")
+        closeImage();
+
+});
+
+lightboxImage.addEventListener("click",function(e){
+
+    e.stopPropagation();
+
+});
+
+</script>
+
+</body>
+</html>
