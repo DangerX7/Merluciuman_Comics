@@ -59,15 +59,25 @@ h1{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,.95);
-    overflow:auto;
+    overflow-y:auto;
+    overflow-x:auto;
     z-index:9999;
     cursor:zoom-out;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+#lightboxContent{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;   /* <-- Start at the TOP */
+    min-height:100%;
 }
 
 #lightbox img{
     display:block;
-    margin:40px auto;
-    max-width:95%;
+    margin:0;
+    max-width:100%;
     height:auto;
     border-radius:8px;
     box-shadow:0 0 30px rgba(0,0,0,.8);
@@ -75,13 +85,14 @@ h1{
 
 #close{
     position:fixed;
-    top:20px;
-    right:30px;
+    top:15px;
+    right:25px;
     color:white;
     font-size:48px;
     font-weight:bold;
     cursor:pointer;
     user-select:none;
+    z-index:10000;
 }
 
 </style>
@@ -110,7 +121,9 @@ h1{
 
     <span id="close">&times;</span>
 
-    <img id="lightboxImage">
+    <div id="lightboxContent">
+        <img id="lightboxImage">
+    </div>
 
 </div>
 
@@ -121,16 +134,16 @@ const lightboxImage=document.getElementById("lightboxImage");
 
 function openImage(src){
 
-    lightbox.style.display="block";
     lightboxImage.src=src;
+    lightbox.style.display="block";
 
-    document.body.style.overflow="hidden";
+    // Always start viewing from the top
+    lightbox.scrollTop=0;
 }
 
 function closeImage(){
 
     lightbox.style.display="none";
-    document.body.style.overflow="auto";
 }
 
 document.addEventListener("keydown",function(e){
