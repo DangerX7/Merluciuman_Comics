@@ -52,6 +52,41 @@ h1{
     font-size:18px;
 }
 
+/* ---------- CHAPTER NAVIGATION ---------- */
+
+.nav-arrow{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    width:60px;
+    height:60px;
+    background:#1f6feb;
+    color:white;
+    text-decoration:none;
+    font-size:36px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    box-shadow:0 0 15px rgba(0,0,0,.6);
+    transition:.2s;
+    z-index:999;
+}
+
+.nav-arrow:hover{
+    background:#388bfd;
+    transform:translateY(-50%) scale(1.1);
+}
+
+.nav-left{
+    left:20px;
+}
+
+.nav-right{
+    right:20px;
+}
+
 /* ---------- LIGHTBOX ---------- */
 
 #lightbox{
@@ -70,7 +105,7 @@ h1{
 #lightboxContent{
     display:flex;
     justify-content:center;
-    align-items:flex-start;   /* <-- Start at the TOP */
+    align-items:flex-start;
     min-height:100%;
 }
 
@@ -101,6 +136,9 @@ h1{
 
 <body>
 
+<a href="Chapter1.html" class="nav-arrow nav-left">&#10094;</a>
+<a href="Chapter3.html" class="nav-arrow nav-right">&#10095;</a>
+
 <h1>Chapter 2</h1>
 
 <div class="container">
@@ -129,31 +167,35 @@ h1{
 
 <script>
 
-const lightbox=document.getElementById("lightbox");
-const lightboxImage=document.getElementById("lightboxImage");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
 
 function openImage(src){
 
-    lightboxImage.src=src;
-    lightbox.style.display="block";
-
-    // Always start viewing from the top
-    lightbox.scrollTop=0;
+    lightboxImage.src = src;
+    lightbox.style.display = "block";
+    lightbox.scrollTop = 0;
 }
 
 function closeImage(){
 
-    lightbox.style.display="none";
+    lightbox.style.display = "none";
 }
 
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown", function(e){
 
-    if(e.key==="Escape")
+    if(e.key === "Escape")
         closeImage();
+
+    if(e.key === "ArrowLeft")
+        window.location.href = "Chapter1.html";
+
+    if(e.key === "ArrowRight")
+        window.location.href = "Chapter3.html";
 
 });
 
-lightboxImage.addEventListener("click",function(e){
+lightboxImage.addEventListener("click", function(e){
 
     e.stopPropagation();
 
