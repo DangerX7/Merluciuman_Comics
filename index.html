@@ -7,11 +7,11 @@
 <title>Merluciuman Comics</title>
 
 <style>
+
 body{
     background:#0d1117;
     color:white;
     font-family:Arial,Helvetica,sans-serif;
-    text-align:center;
     margin:0;
 }
 
@@ -19,23 +19,36 @@ body{
     max-width:900px;
     margin:auto;
     padding:40px;
+    text-align:center;
 }
 
-img{
-    width:100%;
-    max-width:700px;
-    border-radius:10px;
-    box-shadow:0 0 20px rgba(0,0,0,.6);
+/* Logo */
+
+.logo{
+    width:30px;
+    height:30px;
+    display:block;
+    margin:0 auto 10px;
 }
 
 h1{
-    margin:30px 0;
     font-size:48px;
+    margin:0 0 40px;
+}
+
+/* Chapter columns */
+
+.columns{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
 }
 
 .chapter-list{
     list-style:none;
     padding:0;
+    margin:0;
 }
 
 .chapter-list li{
@@ -44,18 +57,19 @@ h1{
 
 .chapter-list a{
     display:inline-block;
-    text-decoration:none;
-    color:white;
-    background:#1f6feb;
-    padding:12px 30px;
-    border-radius:8px;
     width:220px;
+    padding:12px 30px;
+    background:#1f6feb;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
     transition:.2s;
 }
 
 .chapter-list a:hover{
     background:#388bfd;
 }
+
 </style>
 
 </head>
@@ -64,32 +78,39 @@ h1{
 
 <div class="container">
 
-<img src="cover.jpg" alt="Merluciuman Cover">
+    <img src="Z_icon.png" alt="Merluciuman Icon" class="logo">
 
-<h1>Merluciuman</h1>
+    <h1>Merluciuman Comics</h1>
 
-<ul class="chapter-list">
-    <li><a href="chapter1.html">Chapter 1</a></li>
-    <li><a href="chapter2.html">Chapter 2</a></li>
-    <li><a href="chapter3.html">Chapter 3</a></li>
-    <li><a href="chapter4.html">Chapter 4</a></li>
-    <li><a href="chapter5.html">Chapter 5</a></li>
-    <li><a href="chapter6.html">Chapter 6</a></li>
-    <li><a href="chapter7.html">Chapter 7</a></li>
-    <li><a href="chapter8.html">Chapter 8</a></li>
-    <li><a href="chapter9.html">Chapter 9</a></li>
-    <li><a href="chapter10.html">Chapter 10</a></li>
-    <li><a href="chapter11.html">Chapter 11</a></li>
-    <li><a href="chapter12.html">Chapter 12</a></li>
-    <li><a href="chapter13.html">Chapter 13</a></li>
-    <li><a href="chapter14.html">Chapter 14</a></li>
-    <li><a href="chapter15.html">Chapter 15</a></li>
-    <li><a href="chapter16.html">Chapter 16</a></li>
-    <li><a href="chapter17.html">Chapter 17</a></li>
-    <li><a href="chapter18.html">Chapter 18</a></li>
-    <li><a href="chapter19.html">Chapter 19</a></li>
-    <li><a href="chapter20.html">Chapter 20</a></li>
-</ul>
+    <div class="columns">
+
+        <ul class="chapter-list">
+            <li><a href="Chapter1.html">Chapter 1</a></li>
+            <li><a href="Chapter2.html">Chapter 2</a></li>
+            <li><a href="Chapter3.html">Chapter 3</a></li>
+            <li><a href="Chapter4.html">Chapter 4</a></li>
+            <li><a href="Chapter5.html">Chapter 5</a></li>
+            <li><a href="Chapter6.html">Chapter 6</a></li>
+            <li><a href="Chapter7.html">Chapter 7</a></li>
+            <li><a href="Chapter8.html">Chapter 8</a></li>
+            <li><a href="Chapter9.html">Chapter 9</a></li>
+            <li><a href="Chapter10.html">Chapter 10</a></li>
+        </ul>
+
+        <ul class="chapter-list">
+            <li><a href="Chapter11.html">Chapter 11</a></li>
+            <li><a href="Chapter12.html">Chapter 12</a></li>
+            <li><a href="Chapter13.html">Chapter 13</a></li>
+            <li><a href="Chapter14.html">Chapter 14</a></li>
+            <li><a href="Chapter15.html">Chapter 15</a></li>
+            <li><a href="Chapter16.html">Chapter 16</a></li>
+            <li><a href="Chapter17.html">Chapter 17</a></li>
+            <li><a href="Chapter18.html">Chapter 18</a></li>
+            <li><a href="Chapter19.html">Chapter 19</a></li>
+            <li><a href="Chapter20.html">Chapter 20</a></li>
+        </ul>
+
+    </div>
 
 </div>
 
