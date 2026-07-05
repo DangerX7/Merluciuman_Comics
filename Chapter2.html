@@ -69,7 +69,14 @@ h1{
     align-items:center;
     justify-content:center;
     border-radius:50%;
+    box-shadow:0 0 15px rgba(0,0,0,.6);
+    transition:.2s;
     z-index:999;
+}
+
+.nav-arrow:hover{
+    background:#388bfd;
+    transform:translateY(-50%) scale(1.1);
 }
 
 .nav-left{
@@ -78,10 +85,6 @@ h1{
 
 .nav-right{
     right:20px;
-}
-
-.nav-arrow:hover{
-    background:#388bfd;
 }
 
 /* ---------- Lightbox ---------- */
@@ -96,18 +99,18 @@ h1{
 }
 
 #lightboxContent{
-    padding:40px;
     width:max-content;
     margin:auto;
+    padding:40px;
 }
 
 #lightbox img{
     display:block;
-    width:1800px;      /* CHANGE THIS TO 2000, 2200, etc. if you want */
+    width:1400px;
     max-width:none;
     height:auto;
     border-radius:8px;
-    box-shadow:0 0 40px black;
+    box-shadow:0 0 40px rgba(0,0,0,.9);
 }
 
 #close{
@@ -118,8 +121,8 @@ h1{
     font-size:52px;
     font-weight:bold;
     cursor:pointer;
-    z-index:10000;
     user-select:none;
+    z-index:10000;
 }
 
 </style>
@@ -131,72 +134,69 @@ h1{
 <a href="Chapter1.html" class="nav-arrow nav-left">&#10094;</a>
 <a href="Chapter3.html" class="nav-arrow nav-right">&#10095;</a>
 
-<h1>Chapter 2 TEST</h1>
+<h1>Chapter 2</h1>
 
 <div class="container">
 
-<div class="panel">
-    <img src="MC_03.png" onclick="openImage(this.src)">
-    <div class="caption">Cover</div>
-</div>
+    <div class="panel">
+        <img src="MC_03.png" alt="Cover" onclick="openImage(this.src)">
+        <div class="caption">Cover</div>
+    </div>
 
-<div class="panel">
-    <img src="MC_04.png" onclick="openImage(this.src)">
-    <div class="caption">Page 1</div>
-</div>
+    <div class="panel">
+        <img src="MC_04.png" alt="Comic Page" onclick="openImage(this.src)">
+        <div class="caption">Page 1</div>
+    </div>
 
 </div>
 
 <div id="lightbox" onclick="closeImage()">
 
-<span id="close">&times;</span>
+    <span id="close">&times;</span>
 
-<div id="lightboxContent">
-<img id="lightboxImage">
-</div>
+    <div id="lightboxContent">
+        <img id="lightboxImage">
+    </div>
 
 </div>
 
 <script>
 
-const lightbox=document.getElementById("lightbox");
-const lightboxImage=document.getElementById("lightboxImage");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
 
 function openImage(src){
 
-    lightboxImage.src=src;
+    lightboxImage.src = src;
+    lightbox.style.display = "block";
 
-    lightbox.style.display="block";
-
-    lightbox.scrollTop=0;
-    lightbox.scrollLeft=0;
-
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
 }
 
 function closeImage(){
 
-    lightbox.style.display="none";
-
+    lightbox.style.display = "none";
 }
 
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown", function(e){
 
-    if(e.key==="Escape")
+    if(e.key === "Escape")
         closeImage();
 
-    if(e.key==="ArrowLeft")
-        window.location="Chapter1.html";
+    if(e.key === "ArrowLeft")
+        window.location.href = "Chapter1.html";
 
-    if(e.key==="ArrowRight")
-        window.location="Chapter3.html";
+    if(e.key === "ArrowRight")
+        window.location.href = "Chapter3.html";
 
 });
 
-lightboxImage.onclick=function(e){
+lightboxImage.addEventListener("click", function(e){
 
     e.stopPropagation();
 
-};
+});
 
 </script>
 
