@@ -27,6 +27,7 @@ h1{
     align-items:flex-start;
     gap:30px;
     padding:20px;
+    overflow:visible;
 }
 
 .panel{
@@ -38,12 +39,14 @@ h1{
     max-width:100%;
     border-radius:10px;
     cursor:pointer;
-    transition:0.25s;
+    transition:transform .25s ease;
     box-shadow:0 0 15px rgba(0,0,0,.6);
 }
 
 .zoomed{
-    width:900px !important;
+    transform:scale(2.5);
+    z-index:1000;
+    position:relative;
 }
 
 .caption{
@@ -61,21 +64,27 @@ h1{
 
 <div class="container">
 
-<div class="panel">
-<img src="MC_01.png" alt="Cover" onclick="toggleZoom(this)">
-<div class="caption">Cover</div>
-</div>
+    <div class="panel">
+        <img src="MC_01.png" alt="Cover" onclick="toggleZoom(this)">
+        <div class="caption">Cover</div>
+    </div>
 
-<div class="panel">
-<img src="MC_02.png" alt="Comic Page" onclick="toggleZoom(this)">
-<div class="caption">Page 1</div>
-</div>
+    <div class="panel">
+        <img src="MC_02.png" alt="Comic Page" onclick="toggleZoom(this)">
+        <div class="caption">Page 1</div>
+    </div>
 
 </div>
 
 <script>
 
 function toggleZoom(img){
+
+    document.querySelectorAll(".panel img").forEach(image=>{
+        if(image!==img){
+            image.classList.remove("zoomed");
+        }
+    });
 
     img.classList.toggle("zoomed");
 
