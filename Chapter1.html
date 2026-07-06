@@ -9,10 +9,6 @@
 
 <style>
 
-*{
-    box-sizing:border-box;
-}
-
 body{
     margin:0;
     background:#111827;
@@ -23,7 +19,6 @@ body{
 h1{
     text-align:center;
     margin:20px;
-    font-size:40px;
 }
 
 .container{
@@ -130,73 +125,13 @@ h1{
     z-index:10000;
 }
 
-/* ---------- MOBILE ---------- */
-
-@media (max-width:768px){
-
-    h1{
-        font-size:30px;
-    }
-
-    .container{
-        flex-direction:column;
-        align-items:center;
-        padding:15px;
-        gap:20px;
-    }
-
-    .panel{
-        width:100%;
-    }
-
-    .panel img{
-        width:95%;
-        max-width:500px;
-    }
-
-    .caption{
-        font-size:20px;
-    }
-
-    .nav-arrow{
-        width:48px;
-        height:48px;
-        font-size:28px;
-    }
-
-    .nav-left{
-        left:10px;
-    }
-
-    .nav-right{
-        right:10px;
-    }
-
-    #lightboxContent{
-        width:100%;
-        padding:10px;
-    }
-
-    #lightbox img{
-        width:100%;
-        max-width:100%;
-    }
-
-    #close{
-        font-size:42px;
-        right:15px;
-        top:10px;
-    }
-
-}
-
 </style>
 
 </head>
 
 <body>
 
-<a href="index.html" class="nav-arrow nav-left">&#10094;</a>
+<a href="Index.html" class="nav-arrow nav-left">&#10094;</a>
 <a href="Chapter2.html" class="nav-arrow nav-right">&#10095;</a>
 
 <h1>Chapter 1</h1>
@@ -250,10 +185,10 @@ document.addEventListener("keydown", function(e){
         closeImage();
 
     if(e.key === "ArrowLeft")
-        window.location.href = "index.html";
+        window.location.href = "Chapter1.html";
 
     if(e.key === "ArrowRight")
-        window.location.href = "Chapter2.html";
+        window.location.href = "Chapter3.html";
 
 });
 
