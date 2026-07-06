@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,21 +8,17 @@
 
 <style>
 
-*{
-    box-sizing:border-box;
-}
-
 body{
-    margin:0;
     background:#0d1117;
     color:white;
     font-family:Arial,Helvetica,sans-serif;
+    margin:0;
 }
 
 .container{
-    max-width:1000px;
+    max-width:900px;
     margin:auto;
-    padding:40px 20px;
+    padding:40px;
     text-align:center;
 }
 
@@ -33,23 +28,21 @@ body{
     width:120px;
     height:120px;
     display:block;
-    margin:0 auto 15px;
+    margin:0 auto 10px;
 }
-
-/* Title */
 
 h1{
-    margin:0 0 40px;
     font-size:48px;
+    margin:0 0 40px;
 }
 
-/* Columns */
+/* Chapter columns */
 
 .columns{
     display:flex;
     justify-content:center;
-    align-items:flex-start;
     gap:80px;
+    flex-wrap:wrap;
 }
 
 .chapter-list{
@@ -63,63 +56,18 @@ h1{
 }
 
 .chapter-list a{
-    display:block;
-    width:240px;
-    padding:14px;
-    text-decoration:none;
-    color:white;
+    display:inline-block;
+    width:220px;
+    padding:12px 30px;
     background:#1f6feb;
-    border-radius:10px;
-    font-size:20px;
-    transition:0.2s;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.2s;
 }
 
 .chapter-list a:hover{
     background:#388bfd;
-    transform:scale(1.04);
-}
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width:768px){
-
-    .container{
-        padding:25px 15px;
-    }
-
-    .logo{
-        width:90px;
-        height:90px;
-    }
-
-    h1{
-        font-size:34px;
-        margin-bottom:25px;
-    }
-
-    .columns{
-        flex-direction:column;
-        align-items:center;
-        gap:0;
-    }
-
-    .chapter-list{
-        width:100%;
-        margin-bottom:0;
-    }
-
-    .chapter-list li{
-        margin:10px 0;
-    }
-
-    .chapter-list a{
-        width:100%;
-        max-width:340px;
-        margin:auto;
-        font-size:22px;
-        padding:16px;
-    }
-
 }
 
 </style>
@@ -132,7 +80,7 @@ h1{
 
     <img src="Z_icon.png" alt="Merluciuman Icon" class="logo">
 
-    <h1>Merluciuman Comics x</h1>
+    <h1>Merluciuman Comics</h1>
 
     <div class="columns">
 
